@@ -469,6 +469,7 @@
     { type: "choice", id: "erection_quality", question: "Com que frequência você se masturba?", options: ["Mais de uma vez por dia", "Todos os dias", "De 2 a 4 vezes por semana", "Raramente"] },
     { type: "choice", id: "natural_method", question: "Você já tentou algum método natural para aumentar o membro?", options: ["Nunca ouvi falar", "Já ouvi falar, mas nunca tentei", "Já tentei, mas sem consistência", "Sim, fiz com disciplina"] },
     { type: "choice", id: "relationship_impact", question: "Você já tentou resolver seu desempenho sexual de alguma forma?", options: ["Sim, tomei remédio mas não quero depender disso", "Tentei mudar alimentação e exercício mas não adiantou", "Nunca tentei — não sabia por onde começar", "Ainda não tentei mas estou pronto pra mudar isso agora"] },
+    { type: "size", id: "current_size", question: "Último passo: Qual é o seu tamanho atual em ereção?", subtitle: "Essa informação é essencial para calcular seu potencial de crescimento com precisão" },
     {
       type: "info", id: "info2",
       darkbg: true,
@@ -489,12 +490,12 @@
   ];
 
   let current = (_saved && _saved.current != null) ? _saved.current : 0;
-  const totalQuestions = steps.filter(s => s.type === "choice" || s.type === "scale").length;
+  const totalQuestions = steps.filter(s => s.type === "choice" || s.type === "scale" || s.type === "size").length;
 
   function getQuestionIndex() {
     let count = 0;
     for (let i = 0; i < current; i++) {
-      if (steps[i].type === "choice" || steps[i].type === "scale") count++;
+      if (steps[i].type === "choice" || steps[i].type === "scale" || steps[i].type === "size") count++;
     }
     return count;
   }
@@ -578,6 +579,29 @@
           </div>
         </div>
       `;
+    }
+
+    else if (step.type === "size") {
+      const saved = answers[step.id] != null ? answers[step.id] : "";
+      card.innerHTML = `
+        <div class="badge">Pergunta ${getQuestionIndex() + 1}</div>
+        <h2>${step.question}</h2>
+        <div class="subtitle">${step.subtitle || ""}</div>
+        <div style="margin:20px 0;">
+          <label for="sizeInput" style="display:block; font-size:13px; color:#555; margin-bottom:8px; font-weight:600;">Digite o tamanho em cm</label>
+          <div style="position:relative;">
+            <input id="sizeInput" type="number" inputmode="decimal" step="0.1" min="1" max="40" value="${saved}" placeholder="Ex: 14" style="width:100%; font-size:18px; padding:14px 52px 14px 16px; border:2px solid #ddd; border-radius:10px; box-sizing:border-box; outline:none;" />
+            <span style="position:absolute; right:16px; top:50%; transform:translateY(-50%); color:#888; font-weight:600;">cm</span>
+          </div>
+          <div id="sizeError" style="color:#c0392b; font-size:13px; margin-top:8px; display:none;">Digite um valor entre 1 e 40 cm</div>
+        </div>
+        <button class="btn" style="width:100%; font-size:16px; padding:16px 24px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="submitSize('${step.id}')">Continuar →</button>
+        <div style="display:flex; justify-content:center; gap:20px; margin-top:16px; font-size:12px; color:#888;">
+          <span>🔒 Dados criptografados</span>
+          <span>✓ 100% confidencial</span>
+        </div>
+      `;
+      setTimeout(() => { const i = document.getElementById("sizeInput"); if (i) i.focus(); }, 50);
     }
 
     else if (step.type === "info") {
@@ -920,6 +944,20 @@
       el.classList.toggle("selected", i === index);
     });
     setTimeout(() => nextStep(), 300);
+  }
+
+  function submitSize(id) {
+    const input = document.getElementById("sizeInput");
+    const err = document.getElementById("sizeError");
+    const v = parseFloat(input.value);
+    if (isNaN(v) || v < 1 || v > 40) {
+      if (err) err.style.display = "block";
+      input.focus();
+      return;
+    }
+    answers[id] = v;
+    saveState();
+    nextStep();
   }
 
   function selectScale(id, value) {
