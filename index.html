@@ -674,42 +674,48 @@
       card.innerHTML = `
         <div style="text-align:center; padding:16px 0;">
           <div style="display:inline-flex; align-items:center; gap:6px; background:#2478b5; color:#e8f4fd; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:7px 16px; border-radius:99px; margin-bottom:24px;">
-            ⚙️ GERANDO SEU PROTOCOLO
+            ⚙️ PROCESSANDO DADOS
           </div>
-          <h2 style="font-size:20px; font-weight:800; color:#111; line-height:1.4; margin-bottom:8px;">Analisando suas respostas e<br>criando seu protocolo personalizado...</h2>
-          <p style="font-size:13px; color:#777; margin-bottom:32px;">Isso leva apenas alguns segundos</p>
+          <h2 style="font-size:20px; font-weight:800; color:#111; line-height:1.4; margin-bottom:8px;">Criando seu protocolo personalizado</h2>
+          <p style="font-size:13px; color:#777; margin-bottom:32px;">Com base nas suas respostas, estamos calculando seu potencial...</p>
 
           <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:32px; text-align:left;">
             <div style="display:flex; align-items:center; gap:12px;" id="gen-step-1">
               <div style="width:28px; height:28px; border-radius:50%; background:#eee; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;" id="gen-icon-1">⏳</div>
-              <span style="font-size:14px; color:#555;">Identificando seu perfil muscular...</span>
+              <span style="font-size:14px; color:#555;">Analisando seu perfil hormonal...</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px;" id="gen-step-2">
               <div style="width:28px; height:28px; border-radius:50%; background:#eee; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;" id="gen-icon-2">⏳</div>
-              <span style="font-size:14px; color:#555;">Calculando frequência ideal de treino...</span>
+              <span style="font-size:14px; color:#555;">Calculando seu potencial genético...</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px;" id="gen-step-3">
               <div style="width:28px; height:28px; border-radius:50%; background:#eee; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;" id="gen-icon-3">⏳</div>
-              <span style="font-size:14px; color:#555;">Montando sequência de exercícios...</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:12px;" id="gen-step-4">
-              <div style="width:28px; height:28px; border-radius:50%; background:#eee; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;" id="gen-icon-4">⏳</div>
-              <span style="font-size:14px; color:#555;">Finalizando protocolo personalizado...</span>
+              <span style="font-size:14px; color:#555;">Criando seu protocolo personalizado...</span>
             </div>
           </div>
 
           <div style="background:#e5e5e5; border-radius:99px; height:8px; overflow:hidden; margin-bottom:8px;">
             <div id="genFill" style="height:100%; width:0%; background:linear-gradient(90deg,#1a6fa5,#2d8dd6); border-radius:99px; transition:width 0.6s ease;"></div>
           </div>
-          <p id="genPct" style="font-size:13px; color:#888;">0%</p>
+          <p id="genPct" style="font-size:13px; color:#888; margin-bottom:24px;">0%</p>
+
+          <div style="display:flex; justify-content:center; gap:32px; padding-top:20px; border-top:1px solid #eee;">
+            <div style="text-align:center;">
+              <div style="font-size:22px; font-weight:800; color:#1a6fa5;">+14.385</div>
+              <div style="font-size:12px; color:#777; text-transform:uppercase; letter-spacing:0.05em;">Homens</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:22px; font-weight:800; color:#1a6fa5;">94%</div>
+              <div style="font-size:12px; color:#777; text-transform:uppercase; letter-spacing:0.05em;">Satisfação</div>
+            </div>
+          </div>
         </div>
       `;
 
       const steps_gen = [
-        { id: 1, pct: 25 },
-        { id: 2, pct: 55 },
-        { id: 3, pct: 80 },
-        { id: 4, pct: 100 },
+        { id: 1, pct: 33 },
+        { id: 2, pct: 66 },
+        { id: 3, pct: 100 },
       ];
       let gi = 0;
       function runGenStep() {
