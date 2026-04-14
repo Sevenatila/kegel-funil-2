@@ -801,18 +801,39 @@
             <span>✦</span> Seu plano está pronto!
           </div>
 
-          <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:2px solid #22c55e; border-radius:16px; padding:20px 16px; margin-bottom:20px;">
-            <p style="font-size:13px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">🎯 Seu potencial de crescimento</p>
-            <p style="font-size:32px; font-weight:900; color:#15803d; line-height:1; margin-bottom:14px;">+4 cm</p>
-            <div style="display:flex; align-items:center; justify-content:space-around; gap:10px;">
-              <div style="text-align:center;">
-                <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px;">Tamanho atual</div>
-                <div style="font-size:24px; font-weight:900; color:#555;">${currentSizeStr}<span style="font-size:13px;"> cm</span></div>
+          <div style="position:relative; background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%); border-radius:20px; padding:28px 20px 24px; margin-bottom:24px; overflow:hidden; box-shadow:0 20px 50px -10px rgba(34,197,94,0.35), 0 0 0 1px rgba(34,197,94,0.25);">
+            <div style="position:absolute; inset:-2px; background:linear-gradient(135deg,#22c55e,#16a34a,#22c55e); border-radius:20px; opacity:0.25; z-index:0; filter:blur(14px);"></div>
+            <div style="position:relative; z-index:1;">
+              <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.4); color:#86efac; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:6px 14px; border-radius:99px; margin-bottom:14px;">
+                🎯 Seu potencial de crescimento
               </div>
-              <div style="font-size:22px; color:#22c55e; font-weight:900;">→</div>
-              <div style="text-align:center;">
-                <div style="font-size:10px; color:#15803d; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px; font-weight:700;">Em 30 dias</div>
-                <div style="font-size:24px; font-weight:900; color:#15803d;">${potentialSizeStr}<span style="font-size:13px;"> cm</span></div>
+              <div style="text-align:center; margin-bottom:20px;">
+                <div style="font-size:56px; font-weight:900; line-height:1; background:linear-gradient(135deg,#22c55e,#86efac); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 40px rgba(34,197,94,0.4); letter-spacing:-0.02em;">+4<span style="font-size:28px;"> cm</span></div>
+                <p style="font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.12em; margin-top:4px; font-weight:600;">em até 30 dias</p>
+              </div>
+
+              <div style="display:flex; align-items:stretch; gap:10px; margin-bottom:14px;">
+                <div style="flex:1; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 8px; text-align:center;">
+                  <div style="font-size:10px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:600;">Hoje</div>
+                  <div style="font-size:26px; font-weight:900; color:#e2e8f0; line-height:1;">${currentSizeStr}<span style="font-size:13px; color:#94a3b8;"> cm</span></div>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:center; padding:0 4px;">
+                  <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#22c55e,#16a34a); display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(34,197,94,0.6);">
+                    <span style="color:#fff; font-weight:900; font-size:16px;">→</span>
+                  </div>
+                </div>
+                <div style="flex:1; background:linear-gradient(135deg,rgba(34,197,94,0.18),rgba(34,197,94,0.08)); border:1px solid rgba(34,197,94,0.5); border-radius:12px; padding:12px 8px; text-align:center; box-shadow:0 0 20px rgba(34,197,94,0.15) inset;">
+                  <div style="font-size:10px; color:#86efac; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:700;">Em 30 dias</div>
+                  <div style="font-size:26px; font-weight:900; color:#4ade80; line-height:1;">${potentialSizeStr}<span style="font-size:13px; color:#86efac;"> cm</span></div>
+                </div>
+              </div>
+
+              <div style="position:relative; height:8px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; margin-bottom:6px;">
+                <div style="position:absolute; left:0; top:0; height:100%; width:100%; background:linear-gradient(90deg,#64748b 0%,#64748b 40%,#22c55e 40%,#22c55e 100%); border-radius:99px;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:10px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">
+                <span>Início</span>
+                <span style="color:#86efac;">+4 cm reais</span>
               </div>
             </div>
           </div>
