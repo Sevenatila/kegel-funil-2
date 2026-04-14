@@ -790,109 +790,102 @@
 
     else if (step.type === "result") {
       const age = ageOptions[answers["age"]] || ageOptions[0];
-      const currentSize = parseFloat(answers["current_size"]) || 12;
-      const potentialSize = (currentSize + 4).toFixed(1).replace(/\.0$/, "");
-      const sizeW2 = (currentSize + 1.2).toFixed(1);
-      const sizeD15 = (currentSize + 2.4).toFixed(1);
-      const sizeD30 = potentialSize;
+      const goalIdx = answers["goal"];
+      const goals = ["Melhorar a função erétil", "Melhorar o controle da ejaculação", "Maximizar o bem-estar sexual", "Aprimorar ambos os itens"];
+      const goal = goals[goalIdx != null ? goalIdx : 3];
 
       card.innerHTML = `
-        <div style="background:#fff3cd; border:1px solid #ffe08a; border-radius:12px; padding:12px 16px; text-align:center; margin-bottom:14px;">
-          <p style="font-size:13px; font-weight:700; color:#8a6100; margin-bottom:4px;">⏰ Oferta especial expira em <span class="countdown-timer" style="font-weight:900;">15:00</span></p>
-          <p style="font-size:12px; color:#8a6100;">Apenas 3 vagas com desconto hoje</p>
-        </div>
-
         <div style="text-align:center; margin-bottom:20px;">
-          <div style="display:inline-flex; align-items:center; gap:6px; background:#2478b5; color:#e8f4fd; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:7px 16px; border-radius:99px; margin-bottom:14px; border:1px solid #a9cce3;">
+          <div style="display:inline-flex; align-items:center; gap:6px; background:#2478b5; color:#e8f4fd; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:7px 16px; border-radius:99px; margin-bottom:18px; border:1px solid #a9cce3;">
             <span>✦</span> Seu plano está pronto!
           </div>
-          <h2 class="result-headline" style="font-size:24px; font-weight:900; line-height:1.3; text-align:center; margin-bottom:10px; color:#111;">Protocolo Dr Cajado — <span style="color:#1a6fa5;">Potência Total</span></h2>
-          <p style="font-size:18px; font-weight:800; color:#111; margin-bottom:6px;">Seu potencial de crescimento: <span style="color:#22c55e;">+4 cm</span></p>
-          <p style="font-size:13px; color:#666; line-height:1.6; margin-bottom:4px;">Com base no seu perfil — faixa etária <strong style="color:#111;">${age} anos</strong>, seu estilo de vida e respostas hormonais.</p>
+          <h2 class="result-headline" style="font-size:22px; font-weight:800; line-height:1.35; text-align:center; margin-bottom:12px;"><span style="color:#1a6fa5;">Ereção fraca</span> e <span style="color:#1a6fa5;">ejaculação precoce</span> têm a mesma causa: um músculo atrofiado.<br><span style="font-size:14px; font-weight:600; color:#555;">Não é doença. É falta de treino específico.</span></h2>
+          <p style="font-size:20px; font-weight:800; color:#111; text-align:center; line-height:1.5; margin:20px 0 8px; border-top:2px solid #e0e0e0; padding-top:16px;">O Protocolo P5 corrige isso.<br><span style="color:#1a6fa5;">5 exercícios. 5 minutos por dia.</span></p>
+          <p style="font-size:14px; color:#666; text-align:center; line-height:1.6; margin-bottom:4px;">Baseado no mesmo princípio da reabilitação clínica masculina — feito em casa, <strong style="color:#111;">sem ninguém saber.</strong></p>
+          <button class="btn btn-pulse-green" style="margin-top:20px; letter-spacing:0.05em; font-size:15px; padding:16px 24px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="document.getElementById('mainPricingBlock').scrollIntoView({behavior:'smooth', block:'center'});">ACESSAR O PROTOCOLO P5 →</button>
+          <p style="font-size:12px; color:#aaa; margin-top:8px; font-weight:700;">Garantia 90 dias • Acesso imediato</p>
         </div>
 
-        <div style="background:#f5f9fc; border:1px solid #a9cce3; border-radius:14px; padding:20px; margin-bottom:20px;">
-          <div style="display:flex; align-items:center; justify-content:space-around; gap:12px; margin-bottom:18px;">
-            <div style="text-align:center;">
-              <div style="font-size:11px; color:#777; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">Tamanho atual</div>
-              <div style="font-size:28px; font-weight:900; color:#555;">${currentSize}<span style="font-size:14px;">cm</span></div>
-            </div>
-            <div style="font-size:22px; color:#1a6fa5; font-weight:900;">→</div>
-            <div style="text-align:center;">
-              <div style="font-size:11px; color:#1a6fa5; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px; font-weight:700;">Em 30 dias</div>
-              <div style="font-size:28px; font-weight:900; color:#22c55e;">${sizeD30}<span style="font-size:14px;">cm</span></div>
-            </div>
-          </div>
-          <p style="font-size:13px; font-weight:700; color:#111; margin-bottom:10px; text-align:center;">Projeção do seu progresso:</p>
-          <div style="display:flex; justify-content:space-between; gap:8px;">
-            <div style="flex:1; background:#fff; border-radius:10px; padding:10px 6px; text-align:center; border:1px solid #e5e5e5;">
-              <div style="font-size:16px; font-weight:900; color:#1a6fa5;">+1.2cm</div>
-              <div style="font-size:11px; color:#777;">Semana 2</div>
-              <div style="font-size:11px; color:#555; margin-top:2px;">${sizeW2}cm</div>
-            </div>
-            <div style="flex:1; background:#fff; border-radius:10px; padding:10px 6px; text-align:center; border:1px solid #e5e5e5;">
-              <div style="font-size:16px; font-weight:900; color:#1a6fa5;">+2.4cm</div>
-              <div style="font-size:11px; color:#777;">Dia 15</div>
-              <div style="font-size:11px; color:#555; margin-top:2px;">${sizeD15}cm</div>
-            </div>
-            <div style="flex:1; background:#22c55e; border-radius:10px; padding:10px 6px; text-align:center;">
-              <div style="font-size:16px; font-weight:900; color:#fff;">+4cm</div>
-              <div style="font-size:11px; color:#e8f5e9;">Dia 30</div>
-              <div style="font-size:11px; color:#fff; margin-top:2px; font-weight:700;">${sizeD30}cm</div>
-            </div>
-          </div>
+        <video src="BR_video_graph_pp2.mp4" poster="poster_video_graph.webp" autoplay loop muted playsinline preload="auto" style="width:100%; border-radius:12px; margin-bottom:16px;"></video>
+
+        <div class="stat-big">
+          <div class="number">84%</div>
+          <div class="desc">dos homens com seu perfil sentiram resultado em até 5 semanas.<br><strong style="color:#111;">Não é promessa. É fisiologia.</strong></div>
         </div>
 
-        <ul class="benefits" style="margin-bottom:20px;">
-          <li>Apenas <strong>15 minutos por dia</strong> desde sua casa</li>
-          <li><strong>Sem comprimidos, sem cirurgias</strong>, 100% natural</li>
-          <li>Resultados visíveis em <strong>14 dias</strong></li>
+        <p style="font-size:15px; font-weight:700; color:#111; margin-bottom:12px;">O que muda na prática:</p>
+        <ul class="benefits">
+          <li>Ereção mais dura e consistente</li>
+          <li>Controle total da ejaculação</li>
+          <li>Ela vai notar a diferença</li>
         </ul>
 
-        <div class="review" style="margin-bottom:20px;">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
-            <img src="foto_marcelo.webp" alt="Carlos M." width="48" height="48" loading="lazy" style="width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
-            <div>
-              <div style="font-weight:700; font-size:14px; color:#111;">Carlos M.</div>
-              <div style="font-size:12px; color:#999;">34 anos</div>
-              <div class="stars" style="font-size:13px;">★★★★★</div>
-            </div>
-          </div>
-          <div class="text">"Comecei com 13 cm e em 30 dias cheguei a 17,5 cm. Minha parceira notou a diferença desde a segunda semana. O protocolo realmente funciona."</div>
-        </div>
-
-        <div style="display:flex; justify-content:space-around; gap:8px; margin-bottom:20px; padding:16px 8px; background:#fafafa; border-radius:12px; border:1px solid #eee;">
-          <div style="text-align:center;">
-            <div style="font-size:18px; font-weight:900; color:#1a6fa5;">+14.385</div>
-            <div style="font-size:10px; color:#777; text-transform:uppercase;">Homens transformados</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:18px; font-weight:900; color:#1a6fa5;">30 dias</div>
-            <div style="font-size:10px; color:#777; text-transform:uppercase;">Garantia</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:18px; font-weight:900; color:#1a6fa5;">15 min</div>
-            <div style="font-size:10px; color:#777; text-transform:uppercase;">Por dia</div>
-          </div>
-        </div>
-
-        <div id="mainPricingBlock" style="background:#fff; border-radius:16px; padding:24px 20px; text-align:center; margin-bottom:20px; border:2px solid #22c55e;">
+        <div id="mainPricingBlock" style="background:#fff; border-radius:16px; padding:24px 20px; text-align:center; margin-bottom:24px; border:1px solid #a9cce3;">
           <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:12px;">
-            <span style="font-size:15px; color:#999; text-decoration:line-through;">R$ 97,00</span>
-            <span style="background:#22c55e; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px;">70% OFF</span>
+            <span style="font-size:15px; color:#999; text-decoration:line-through;">R$ 67,00</span>
+            <span style="background:#2d8dd6; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px;">55% OFF</span>
           </div>
           <p style="margin-bottom:4px;"><span style="font-size:22px; font-weight:800; color:#111;">R$</span><span style="font-size:52px; font-weight:900; color:#111; line-height:1;">29</span><span style="font-size:22px; font-weight:800; color:#111;">,90</span></p>
-          <p style="font-size:12px; color:#999; margin-bottom:16px;">Acesso imediato após o pagamento</p>
-          <button id="mainCta" class="btn btn-pulse-green" style="width:100%; letter-spacing:0.04em; font-size:15px; padding:16px 24px; margin-bottom:8px; background:linear-gradient(135deg,#16a34a,#22c55e);" onclick="window.location.href='https://checkout.protocolotsr.shop/VCCL1O8SCWVU'">GARANTIR MEU PROTOCOLO AGORA →</button>
-          <p style="font-size:12px; color:#666; font-weight:700;">(3 vagas com 70% de desconto)</p>
+          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra voltar a ser o homem que ela quer</p>
+          <button id="mainCta" class="btn btn-pulse-green" style="width:100%; letter-spacing:0.05em; font-size:15px; padding:16px 24px; margin-bottom:10px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="window.location.href='https://checkout.protocolotsr.shop/VCCL1O8SCWVU'">ACESSAR O PROTOCOLO P5 →</button>
+          <p style="font-size:12px; color:#666; font-weight:600;">✓ Garantia 90 dias &nbsp;•&nbsp; ✓ Acesso vitalício</p>
+        </div>
+
+        <p style="font-size:15px; font-weight:700; color:#111; margin-bottom:12px;">O que homens como você estão dizendo:</p>
+        <div class="reviews">
+          <div class="review">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+              <img src="foto_fernando.webp" alt="Fernando" width="48" height="48" loading="lazy" style="width:48px; height:48px; border-radius:50%; object-fit:cover; object-position:center 20%; flex-shrink:0;" />
+              <div>
+                <div style="font-weight:700; font-size:14px; color:#111;">Fernando</div>
+                <div style="font-size:12px; color:#999;">27 anos</div>
+                <div class="stars" style="font-size:13px;">★★★★★</div>
+              </div>
+            </div>
+            <div class="text">Segui este plano de exercícios de Kegel e agora meu desempenho está no auge. Pessoal, isso realmente faz a diferença, não percam essa oportunidade.</div>
+          </div>
+          <div class="review">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+              <img src="foto_joelson.webp" alt="Joelson" width="48" height="48" loading="lazy" style="width:48px; height:48px; border-radius:50%; object-fit:cover; object-position:center 40%; flex-shrink:0;" />
+              <div>
+                <div style="font-weight:700; font-size:14px; color:#111;">Joelson</div>
+                <div style="font-size:12px; color:#999;">51 anos</div>
+                <div class="stars" style="font-size:13px;">★★★★★</div>
+              </div>
+            </div>
+            <div class="text">Ao chegar aos 50 anos, pensei que meus melhores dias tinham acabado. Mas graças ao Kegel, me sinto como se tivesse 20 anos de novo!</div>
+          </div>
+          <div class="review">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+              <img src="foto_edson.webp" alt="Edson" width="48" height="48" loading="lazy" style="width:48px; height:48px; border-radius:50%; object-fit:cover; object-position:center 20%; flex-shrink:0;" />
+              <div>
+                <div style="font-weight:700; font-size:14px; color:#111;">Edson</div>
+                <div style="font-size:12px; color:#999;">42 anos</div>
+                <div class="stars" style="font-size:13px;">★★★★★</div>
+              </div>
+            </div>
+            <div class="text">Estou fazendo exercícios de Kegel há duas semanas e realmente aumentei minha resistência, me sinto mais confiante com minha parceira. Você também deveria experimentar os exercícios de Kegel.</div>
+          </div>
         </div>
 
         <div style="background:#fafafa; border-radius:16px; padding:20px; display:flex; align-items:center; gap:16px; margin-bottom:16px; border:1px solid #888;">
-          <img src="garantia-90-dias.webp" alt="Garantia 30 dias" width="128" height="128" loading="lazy" style="flex-shrink:0; width:64px; height:64px; object-fit:contain;" />
+          <img src="garantia-90-dias.webp" alt="Garantia 90 dias" width="128" height="128" loading="lazy" style="flex-shrink:0; width:64px; height:64px; object-fit:contain;" />
           <div style="text-align:left;">
-            <p style="font-size:15px; font-weight:800; color:#111; margin-bottom:6px;">Garantia de 30 Dias</p>
-            <p style="font-size:12px; color:#555; line-height:1.5;">Se você não ver resultados, devolvemos 100% do seu dinheiro. Seu protocolo foi criado especificamente para o seu perfil. Acesso imediato após o pagamento.</p>
+            <p style="font-size:15px; font-weight:800; color:#111; margin-bottom:6px;">Garantia de 90 Dias de Devolução</p>
+            <p style="font-size:12px; color:#555; line-height:1.5; margin-bottom:6px;">Se em 90 dias você não estiver satisfeito com os resultados, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+            <p style="font-size:13px; font-weight:700; color:#2d8dd6;">Risco zero. Resultados garantido.</p>
           </div>
+        </div>
+
+        <div style="background:#fff; border-radius:16px; padding:24px 20px; text-align:center; margin-top:8px; margin-bottom:16px; border:1px solid #a9cce3;">
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:12px;">
+            <span style="font-size:15px; color:#999; text-decoration:line-through;">R$ 67,00</span>
+            <span style="background:#2d8dd6; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px;">55% OFF</span>
+          </div>
+          <p style="margin-bottom:4px;"><span style="font-size:22px; font-weight:800; color:#111;">R$</span><span style="font-size:52px; font-weight:900; color:#111; line-height:1;">29</span><span style="font-size:22px; font-weight:800; color:#111;">,90</span></p>
+          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra voltar a ser o homem que ela quer</p>
+          <button class="btn btn-pulse-green" style="width:100%; letter-spacing:0.05em; font-size:15px; padding:16px 24px; margin-bottom:10px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="window.location.href='https://checkout.protocolotsr.shop/VCCL1O8SCWVU'">ACESSAR O PROTOCOLO P5 →</button>
+          <p style="font-size:12px; color:#666; font-weight:600;">✓ Garantia 90 dias &nbsp;•&nbsp; ✓ Acesso vitalício</p>
         </div>
 
         <p class="note" style="margin-bottom:80px;">*Estatísticas de pesquisa interna · Equipamento: não necessário</p>
