@@ -777,12 +777,12 @@
       document.getElementById("globalLogo").src = "BR_logo_dark_bg.webp";
       card.innerHTML = `
         <div style="text-align:center; margin-bottom:24px;">
-          <h2 style="font-size:22px; font-weight:800; line-height:1.35; margin-bottom:16px; color:#fff;">Identificamos o problema — e a boa notícia é que <span style="color:#22c55e;">tem solução</span></h2>
-          <p style="font-size:14px; color:#ccc; line-height:1.7; margin-bottom:16px;">Com base nas suas respostas, seu corpo está mandando <strong style="color:#fff;">sinais claros de alerta</strong>. Ignorar isso vai piorar com o tempo — mas reverter é mais <strong style="color:#fff;">simples do que você imagina.</strong> Sem remédio, sem efeito colateral.</p>
+          <h2 style="font-size:22px; font-weight:800; line-height:1.35; margin-bottom:16px; color:#fff;">Identificamos seu <span style="color:#22c55e;">potencial de crescimento</span> — e a boa notícia é que <span style="color:#22c55e;">tem como destravar</span></h2>
+          <p style="font-size:14px; color:#ccc; line-height:1.7; margin-bottom:16px;">Com base nas suas respostas, seu corpo tem <strong style="color:#fff;">potencial real</strong> que hoje está travado pela fraqueza muscular. Continuar do jeito que está significa <strong style="color:#fff;">nunca ver esses centímetros aparecerem</strong> — mas destravar isso é mais simples do que você imagina. Sem remédio, sem bomba, sem cirurgia.</p>
           <img src="BR_img_erection_84.webp" alt="" width="800" height="450" style="width:100%; height:auto; border-radius:12px; margin-bottom:12px;" />
-          <p style="font-size:14px; color:#ccc; line-height:1.7; margin-bottom:16px; text-align:center;">O problema nunca foi falta de solução. Foi falta do <strong style="color:#fff;">diagnóstico certo.</strong><br><br>Você acabou de dar o passo que a maioria nunca dá. E os números provam: <strong style="color:#fff; font-weight:900;">84%</strong> dos homens que seguiram esse protocolo reverteram a disfunção erétil <strong style="color:#fff;">sem depender de remédio nenhum.</strong></p>
+          <p style="font-size:14px; color:#ccc; line-height:1.7; margin-bottom:16px; text-align:center;">O problema nunca foi <strong style="color:#fff;">falta de possibilidade</strong>. Foi falta do <strong style="color:#fff;">método certo.</strong><br><br>Você acabou de dar o passo que a maioria nunca dá. E os números provam: <strong style="color:#fff; font-weight:900;">84%</strong> dos homens que seguiram esse protocolo <strong style="color:#fff;">ganharam centímetros reais</strong> sem depender de produto nenhum.</p>
           <div style="background:#1a1a1a; border:1px solid #888; border-radius:14px; padding:18px 20px; margin-bottom:24px;">
-            <p style="font-size:14px; color:#ccc; line-height:1.6;">Homens que identificaram esse padrão cedo conseguiram recuperar a performance em <strong style="color:#22c55e;">menos de 2 semanas.</strong></p>
+            <p style="font-size:14px; color:#ccc; line-height:1.6;">Homens que identificaram esse padrão cedo começaram a ver o pênis <strong style="color:#22c55e;">mais grosso e mais cheio em menos de 2 semanas.</strong></p>
           </div>
         </div>
       `;
@@ -790,17 +790,35 @@
 
     else if (step.type === "result") {
       const age = ageOptions[answers["age"]] || ageOptions[0];
-      const goalIdx = answers["goal"];
-      const goals = ["Melhorar a função erétil", "Melhorar o controle da ejaculação", "Maximizar o bem-estar sexual", "Aprimorar ambos os itens"];
-      const goal = goals[goalIdx != null ? goalIdx : 3];
+      const currentSize = parseFloat(answers["current_size"]) || 12;
+      const potentialSize = Number((currentSize + 4).toFixed(1));
+      const currentSizeStr = String(currentSize).replace(/\.0$/, "");
+      const potentialSizeStr = String(potentialSize).replace(/\.0$/, "");
 
       card.innerHTML = `
         <div style="text-align:center; margin-bottom:20px;">
           <div style="display:inline-flex; align-items:center; gap:6px; background:#2478b5; color:#e8f4fd; font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:7px 16px; border-radius:99px; margin-bottom:18px; border:1px solid #a9cce3;">
             <span>✦</span> Seu plano está pronto!
           </div>
-          <h2 class="result-headline" style="font-size:22px; font-weight:800; line-height:1.35; text-align:center; margin-bottom:12px;"><span style="color:#1a6fa5;">Ereção fraca</span> e <span style="color:#1a6fa5;">ejaculação precoce</span> têm a mesma causa: um músculo atrofiado.<br><span style="font-size:14px; font-weight:600; color:#555;">Não é doença. É falta de treino específico.</span></h2>
-          <p style="font-size:20px; font-weight:800; color:#111; text-align:center; line-height:1.5; margin:20px 0 8px; border-top:2px solid #e0e0e0; padding-top:16px;">O Protocolo P5 corrige isso.<br><span style="color:#1a6fa5;">5 exercícios. 5 minutos por dia.</span></p>
+
+          <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:2px solid #22c55e; border-radius:16px; padding:20px 16px; margin-bottom:20px;">
+            <p style="font-size:13px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">🎯 Seu potencial de crescimento</p>
+            <p style="font-size:32px; font-weight:900; color:#15803d; line-height:1; margin-bottom:14px;">+4 cm</p>
+            <div style="display:flex; align-items:center; justify-content:space-around; gap:10px;">
+              <div style="text-align:center;">
+                <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px;">Tamanho atual</div>
+                <div style="font-size:24px; font-weight:900; color:#555;">${currentSizeStr}<span style="font-size:13px;"> cm</span></div>
+              </div>
+              <div style="font-size:22px; color:#22c55e; font-weight:900;">→</div>
+              <div style="text-align:center;">
+                <div style="font-size:10px; color:#15803d; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px; font-weight:700;">Em 30 dias</div>
+                <div style="font-size:24px; font-weight:900; color:#15803d;">${potentialSizeStr}<span style="font-size:13px;"> cm</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="result-headline" style="font-size:22px; font-weight:800; line-height:1.35; text-align:center; margin-bottom:12px;"><span style="color:#1a6fa5;">Pênis pequeno</span> e <span style="color:#1a6fa5;">ereção fraca</span> têm a mesma causa: um músculo atrofiado.<br><span style="font-size:14px; font-weight:600; color:#555;">Não é genética. É falta de treino específico.</span></h2>
+          <p style="font-size:20px; font-weight:800; color:#111; text-align:center; line-height:1.5; margin:20px 0 8px; border-top:2px solid #e0e0e0; padding-top:16px;">O Protocolo P5 destrava seu potencial.<br><span style="color:#1a6fa5;">5 exercícios. 5 minutos por dia.</span></p>
           <p style="font-size:14px; color:#666; text-align:center; line-height:1.6; margin-bottom:4px;">Baseado no mesmo princípio da reabilitação clínica masculina — feito em casa, <strong style="color:#111;">sem ninguém saber.</strong></p>
           <button class="btn btn-pulse-green" style="margin-top:20px; letter-spacing:0.05em; font-size:15px; padding:16px 24px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="document.getElementById('mainPricingBlock').scrollIntoView({behavior:'smooth', block:'center'});">ACESSAR O PROTOCOLO P5 →</button>
           <p style="font-size:12px; color:#aaa; margin-top:8px; font-weight:700;">Garantia 90 dias • Acesso imediato</p>
@@ -826,7 +844,7 @@
             <span style="background:#2d8dd6; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px;">55% OFF</span>
           </div>
           <p style="margin-bottom:4px;"><span style="font-size:22px; font-weight:800; color:#111;">R$</span><span style="font-size:52px; font-weight:900; color:#111; line-height:1;">29</span><span style="font-size:22px; font-weight:800; color:#111;">,90</span></p>
-          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra voltar a ser o homem que ela quer</p>
+          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra ganhar os centímetros que sempre quis</p>
           <button id="mainCta" class="btn btn-pulse-green" style="width:100%; letter-spacing:0.05em; font-size:15px; padding:16px 24px; margin-bottom:10px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="window.location.href='https://checkout.protocolotsr.shop/VCCL1O8SCWVU'">ACESSAR O PROTOCOLO P5 →</button>
           <p style="font-size:12px; color:#666; font-weight:600;">✓ Garantia 90 dias &nbsp;•&nbsp; ✓ Acesso vitalício</p>
         </div>
@@ -842,7 +860,7 @@
                 <div class="stars" style="font-size:13px;">★★★★★</div>
               </div>
             </div>
-            <div class="text">Segui este plano de exercícios de Kegel e agora meu desempenho está no auge. Pessoal, isso realmente faz a diferença, não percam essa oportunidade.</div>
+            <div class="text">Segui este plano de Kegel e em 3 semanas já notei o pênis mais grosso e mais duro. Minha parceira percebeu na hora. Isso realmente faz a diferença, não percam essa oportunidade.</div>
           </div>
           <div class="review">
             <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -853,7 +871,7 @@
                 <div class="stars" style="font-size:13px;">★★★★★</div>
               </div>
             </div>
-            <div class="text">Ao chegar aos 50 anos, pensei que meus melhores dias tinham acabado. Mas graças ao Kegel, me sinto como se tivesse 20 anos de novo!</div>
+            <div class="text">Aos 50, achei que meu tamanho era o que era pro resto da vida. Com o Kegel ganhei centímetros reais e o pênis ficou bem mais cheio. Me sinto como se tivesse 20 anos de novo!</div>
           </div>
           <div class="review">
             <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -864,7 +882,7 @@
                 <div class="stars" style="font-size:13px;">★★★★★</div>
               </div>
             </div>
-            <div class="text">Estou fazendo exercícios de Kegel há duas semanas e realmente aumentei minha resistência, me sinto mais confiante com minha parceira. Você também deveria experimentar os exercícios de Kegel.</div>
+            <div class="text">Em duas semanas de Kegel já vi o pênis mais cheio e mais duro, ganhei grossura real. Me sinto muito mais confiante com minha parceira. Você também deveria experimentar.</div>
           </div>
         </div>
 
@@ -883,7 +901,7 @@
             <span style="background:#2d8dd6; color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px;">55% OFF</span>
           </div>
           <p style="margin-bottom:4px;"><span style="font-size:22px; font-weight:800; color:#111;">R$</span><span style="font-size:52px; font-weight:900; color:#111; line-height:1;">29</span><span style="font-size:22px; font-weight:800; color:#111;">,90</span></p>
-          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra voltar a ser o homem que ela quer</p>
+          <p style="font-size:12px; color:#999; margin-bottom:16px;">Menos de R$ 1,00 por dia pra ganhar os centímetros que sempre quis</p>
           <button class="btn btn-pulse-green" style="width:100%; letter-spacing:0.05em; font-size:15px; padding:16px 24px; margin-bottom:10px; background:linear-gradient(135deg,#1a6fa5,#2d8dd6);" onclick="window.location.href='https://checkout.protocolotsr.shop/VCCL1O8SCWVU'">ACESSAR O PROTOCOLO P5 →</button>
           <p style="font-size:12px; color:#666; font-weight:600;">✓ Garantia 90 dias &nbsp;•&nbsp; ✓ Acesso vitalício</p>
         </div>
